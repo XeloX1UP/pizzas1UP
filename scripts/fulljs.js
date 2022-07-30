@@ -83,16 +83,16 @@ const btnContacto = addBtn(
   "/imagenes/iconos/contacto.png",
   "contacto"
 );
-const btnOpinion = addBtn(
-  "contenedorOpinion",
-  "/imagenes/iconos/opinion.png",
-  "opinion"
+const btnLogIn = addBtn(
+  "contenedorLogin",
+  "/imagenes/iconos/acceso.png",
+  "login"
 );
 // insertar botones al nav
 navegador.appendChild(btnHome);
 navegador.appendChild(btnUbicacion);
 navegador.appendChild(btnContacto);
-navegador.appendChild(btnOpinion);
+navegador.appendChild(btnLogIn);
 
 //Insertar barra de navegacion al body
 header.appendChild(contenedorLogo);
