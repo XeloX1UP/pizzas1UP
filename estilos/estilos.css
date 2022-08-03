@@ -43,6 +43,7 @@ header {
   background-color: #000000;
   box-shadow: 0px 5px 20px #000000;
   margin-top: 0;
+  z-index: 1;
 }
 .contenedorLogo {
   border: 5px solid #ff9f29;
@@ -171,8 +172,19 @@ nav div:hover .iconoBoton {
 }
 
 .seccion {
-  min-height: 700px;
+  min-height: calc(100vh - 200px);
+  margin: 50px 0;
+
+  opacity: 0;
+  transform: translateX(20px) translateY(20px);
+
+  transition: 0.7s;
+
   /* border: 1px solid #faf3e3; */
+}
+.seccion.visible {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
 }
 
 .contenedorMapa {
@@ -220,12 +232,13 @@ nav div:hover .iconoBoton {
 .CtnContacto {
   width: calc(100vw - 150px);
   min-height: 300px;
-  /* background-color: #1a4d2e52; */
+  background-color: #1a4d2e52;
   border-radius: 7px;
   margin: 10px auto 50px;
   display: flex;
   flex-direction: row;
-  gap: 5px;
+  gap: 20px;
+  padding: 10px;
 }
 
 .textoContacto {
@@ -241,7 +254,7 @@ nav div:hover .iconoBoton {
   font-weight: bold;
   border-right: 2px solid #ff9f29;
   cursor: pointer;
-  width: 40%;
+  width: 150px;
   transition: 0.5s;
   text-decoration: underline;
   font-size: 1.5rem;
@@ -292,8 +305,8 @@ nav div:hover .iconoBoton {
   font-size: 1.4rem;
   color: #faf3e3;
   transition: 0.2s;
-  width: 100%;
-  height: 30%;
+  /* width: 100%;
+  height: 30%; */
   resize: none;
 }
 .formularioContacto textarea::placeholder {
@@ -317,7 +330,11 @@ nav div:hover .iconoBoton {
   border: 2px solid #faf3e3;
   transform: scale(1.1);
 }
+
 @media (max-width: 600px) {
+  header {
+    position: relative;
+  }
   .iconoBoton {
     width: 25px;
     height: auto;
@@ -333,19 +350,41 @@ nav div:hover .iconoBoton {
     max-height: 100px;
   }
   .tituloLI {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
   .textoLI {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
   .btnLI {
     font-size: 1rem;
   }
+  .contenedorMapa {
+    width: calc(100vw - 40px);
+  }
+  .titulo {
+    font-size: 2.5rem;
+  }
+  .textoContacto h3 {
+    width: 100px;
+    color: #faf3e3;
+  }
+  .CtnContacto {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: calc(100vw - 20px);
+  }
+  .seccion {
+    min-height: 100px;
+  }
 }
 
 @media (max-width: 400px) {
-  .contenedorLogo {
-    display: none;
+  header {
+    flex-direction: column;
+  }
+  .btnMapa {
+    font-size: 1.2rem;
   }
   .iconoBoton {
     display: none;
@@ -354,5 +393,17 @@ nav div:hover .iconoBoton {
     opacity: 1;
     position: relative;
     transform: translateY(10px);
+  }
+  .formularioContacto input {
+    font-size: 1rem;
+  }
+  .formularioContacto textarea {
+    font-size: 1rem;
+  }
+  .textoContacto h4 {
+    font-size: 1.2rem;
+  }
+  .textoContacto h2 {
+    font-size: 1.7rem;
   }
 }
