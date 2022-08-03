@@ -1,7 +1,7 @@
 const loginFragment = document.createDocumentFragment();
 const contenedor = document.createElement("div");
 contenedor.className = "cntLogIn";
-let abierto = false;
+contenedor.id = "cntLogIn";
 
 const cardLogin = document.createElement("form");
 cardLogin.className = "cardLogin";
@@ -13,9 +13,11 @@ txtTitulo.innerHTML = "Accede a 'Pizzas1UP'";
 const iptUsername = document.createElement("input");
 iptUsername.type = "name";
 iptUsername.maxLength = "25";
+iptUsername.placeholder = "Usuario";
 const iptPassword = document.createElement("input");
 iptPassword.type = "password";
 iptPassword.maxLength = "20";
+iptPassword.placeholder = "Contraseña";
 const btnLogin = document.createElement("button");
 btnLogin.innerHTML = "Iniciar sesion";
 
@@ -27,17 +29,35 @@ cardLogin.appendChild(btnLogin);
 
 contenedor.appendChild(cardLogin);
 
+//ocultar login y capturarlo
 loginFragment.appendChild(contenedor);
+const divLogin = document.getElementById("login");
+divLogin.appendChild(loginFragment);
+const cntLogIn = document.getElementById("cntLogIn");
+divLogin.removeChild(cntLogIn);
+let abierto = false;
 
 const btnSwitch = document.getElementById("contenedorLogin");
 
 const switchLogin = () => {
+  const contenidoPagina0 = document.getElementById("sPadre");
+  const contenidoPagina1 = document.getElementById("header");
   if (!abierto) {
-    document.body.appendChild(loginFragment);
-    abierto = !abierto;
+    divLogin.appendChild(cntLogIn);
+    abierto = true;
+    console.log("abriendo");
+    window.scrollTo(0, 0);
+    contenidoPagina0.style.filter = "blur(3px)";
+    contenidoPagina1.style.filter = "blur(3px)";
+    document.body.style.height = "100vh";
+    document.body.style.overflowY = "hidden";
   } else {
-    document.body.removeChild(loginFragment.firstElementChild);
-    abierto = !abierto;
+    divLogin.removeChild(cntLogIn);
+    abierto = false;
+    console.log("cerrando");
+    contenidoPagina0.removeAttribute("style");
+    contenidoPagina1.removeAttribute("style");
+    document.body.removeAttribute("style");
   }
 };
 

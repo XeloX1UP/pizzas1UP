@@ -19,6 +19,7 @@ const addBtn = (idContenedor, srcImagen, txtBoton) => {
 const crearSeccion = (id) => {
   let seccion = document.createElement("div");
   seccion.className = `seccion s${id}`;
+  seccion.id = `s${id}`;
   return seccion;
 };
 
@@ -58,6 +59,7 @@ const fragmentNav = document.createDocumentFragment();
 
 // Crear Header
 const header = document.createElement("header");
+header.id = "header";
 // Crear contenedor del logo
 const contenedorLogo = document.createElement("div");
 contenedorLogo.className = "contenedorLogo";
@@ -100,6 +102,8 @@ header.appendChild(navegador);
 fragmentNav.appendChild(header);
 document.body.appendChild(fragmentNav);
 
+const padre = crearSeccion("Padre");
+padre.removeAttribute("class");
 //Crear fragmento de Seccion
 const fragmentSeccion = document.createDocumentFragment();
 //Crear seccion Home
@@ -167,7 +171,7 @@ tituloContacto.className = "titulo";
 const textoContacto = document.createElement("div");
 textoContacto.className = "textoContacto";
 const contactanos = document.createElement("h2");
-contactanos.innerHTML = "Siguenos en nuestras redes sociales:";
+contactanos.innerHTML = "Síguenos en nuestras redes sociales:";
 const facebook = document.createElement("h3");
 facebook.innerHTML = "Facebook";
 facebook.addEventListener("click", () =>
@@ -237,7 +241,8 @@ seccionUbicacion.appendChild(botonesMapa);
 seccionContacto.appendChild(tituloContacto);
 seccionContacto.appendChild(contenedorContacto);
 
-fragmentSeccion.appendChild(seccionHome);
-fragmentSeccion.appendChild(seccionUbicacion);
-fragmentSeccion.appendChild(seccionContacto);
+padre.appendChild(seccionHome);
+padre.appendChild(seccionUbicacion);
+padre.appendChild(seccionContacto);
+fragmentSeccion.appendChild(padre);
 document.body.appendChild(fragmentSeccion);
