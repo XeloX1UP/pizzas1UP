@@ -1,5 +1,4 @@
 .cntCarrousel {
-  /* border: 2px solid #ff9f29; */
   width: 80%;
   max-width: 120em;
   height: 350px;
@@ -35,7 +34,6 @@
 .carrousel {
   width: 300%;
   height: 90%;
-  /* border: 2px solid #ff9f29; */
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;

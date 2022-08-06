@@ -20,12 +20,22 @@ iptPassword.maxLength = "20";
 iptPassword.placeholder = "Contraseña";
 const btnLogin = document.createElement("button");
 btnLogin.innerHTML = "Iniciar sesion";
+btnLogin.type = "submit";
+
+const btnRegistrar = document.createElement("button");
+btnRegistrar.innerHTML = "Crea tu cuenta";
+
+const forgot = document.createElement("a");
+forgot.href = "#";
+forgot.innerText = "¿olvidaste tu contraseña?";
 
 cardLogin.appendChild(btnSalir);
 cardLogin.appendChild(txtTitulo);
 cardLogin.appendChild(iptUsername);
 cardLogin.appendChild(iptPassword);
+cardLogin.appendChild(forgot);
 cardLogin.appendChild(btnLogin);
+cardLogin.appendChild(btnRegistrar);
 
 contenedor.appendChild(cardLogin);
 
@@ -43,6 +53,8 @@ const switchLogin = () => {
   const contenidoPagina0 = document.getElementById("sPadre");
   const contenidoPagina1 = document.getElementById("header");
   if (!abierto) {
+    iptUsername.value = "";
+    iptPassword.value = "";
     divLogin.appendChild(cntLogIn);
     abierto = true;
     console.log("abriendo");
@@ -66,4 +78,13 @@ btnSwitch.addEventListener("click", () => {
 });
 btnSalir.addEventListener("click", () => {
   switchLogin();
+});
+
+btnLogin.addEventListener("click", (e) => {
+  e.preventDefault();
+  const data = {
+    username: iptUsername.value,
+    password: iptPassword.value,
+  };
+  console.log(data);
 });
