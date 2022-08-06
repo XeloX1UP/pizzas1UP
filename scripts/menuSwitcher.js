@@ -37,7 +37,7 @@ const observador = new IntersectionObserver(cargarSeccion, {
   //crear observador
   root: null,
   rootMargin: "0px 0px 30px 0px",
-  threshold: 0.4,
+  threshold: 0.2,
 });
 for (let item of secciones) observador.observe(item); //observar elementos div
 
