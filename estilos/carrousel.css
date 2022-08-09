@@ -1,7 +1,7 @@
 .cntCarrousel {
   width: 80%;
-  max-width: 120em;
-  height: 350px;
+  max-width: 600px;
+  height: 400px;
   margin: 50px auto;
   overflow: hidden;
 }
